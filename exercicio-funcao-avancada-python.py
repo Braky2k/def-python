@@ -92,3 +92,40 @@ def div(m, n):
   return 1 + div(m-n, n)
 
 div(7, 2)
+
+def imc(peso, altura): return peso / (altura ** 2)
+def classificacao(classificacao):
+  if classificacao < 18.5: return 'Magreza'
+  if classificacao >= 18.5 and classificacao < 25: return 'Normal'
+  if classificacao >= 25 and classificacao < 30: return 'Normal'
+  if classificacao >= 30 and classificacao < 40: return 'Obesidade'
+  if classificacao >= 40: return 'Obesidade Grave'
+
+calculo = imc(59, 1.64)
+classe = classificacao(calculo)
+
+print(f'IMC: {calculo:.1f}')
+print(f'Classificação: {classe}')
+
+def raiz(N):
+  if N == 0 or N == 1: return N
+  if N < 0: N = -N
+  x = 1
+  while abs(x*x - N) > 1e-9:
+    x = 1/2 * (x + N/x)
+  return x
+
+raiz(9)
+
+def decompor(N):
+  lista = []
+  contador = 2
+  while N > 1:
+    if N % contador == 0:
+      lista.append(contador)
+      N //= contador
+    else:
+      contador += 1
+  return lista
+
+decompor(36)
